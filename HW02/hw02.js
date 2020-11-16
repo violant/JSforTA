@@ -62,7 +62,18 @@ let a = prompt('введіть першу сторону', '0');
 let b = prompt('введіть другу сторону', '0');
 let c = prompt('введіть третю сторону', '0');
 
-if ((a > 0) && (b > 0) && (c > 0) && (a < (b + c)) && (b < (a + c)) &&
+a = parseFloat(a);
+b = parseFloat(b);
+c = parseFloat(c);
+
+if (!isNaN(a) &&
+    !isNaN(b) &&
+    !isNaN(c) &&
+    (a > 0) &&
+    (b > 0) &&
+    (c > 0) &&
+    (a < (b + c)) &&
+    (b < (a + c)) &&
     (c < (a + b))) {
   let p = a + b + c;
   let s = Math.sqrt(p * (p - a) * (p - b) * (p - c));
