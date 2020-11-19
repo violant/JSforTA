@@ -69,6 +69,9 @@ c = parseFloat(c);
 if (!isNaN(a) &&
     !isNaN(b) &&
     !isNaN(c) &&
+    !isFinite(a)&&
+    !isFinite(b)&&
+    !isFinite(c)&&
     (a > 0) &&
     (b > 0) &&
     (c > 0) &&
