@@ -78,7 +78,7 @@ if (!isNaN(a) &&
     (a < (b + c)) &&
     (b < (a + c)) &&
     (c < (a + b))) {
-  let p = a + b + c;
+  let p = (a + b + c)/2;
   let s = Math.sqrt(p * (p - a) * (p - b) * (p - c));
   console.log('Площа трикутника = ', s.toFixed(3));
   if ((a * a + b * b === c * c) || (a * a + c * c === b * b) ||
