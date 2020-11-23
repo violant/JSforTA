@@ -17,6 +17,7 @@ function calcRectangleArea(width, height) {
   }
   return width * height;
 }
+
 try {
   calcRectangleArea('ASDasd', '5');
 } catch (e) {
@@ -58,33 +59,31 @@ class MonthException {
   constructor(message) {
     this.name = message;
   }
+}
 
-  static showMonthName(month) {
-    month = parseInt(month);
-    if (month < 1 || month > 12) {
-      throw (this.name + '  Incorrect month number');
-    }
-    return [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December'][month - 1];
+function showMonthName(month) {
+  month = parseInt(month);
+  if (month < 1 || month > 12) {
+    throw (new MonthException('MonthException') + '  Incorrect month number');
   }
-
+  return [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'][month - 1];
 }
 
 try {
-  new MonthException('MonthException');
-  console.log(MonthException.showMonthName(5));
-  console.log(MonthException.showMonthName(14));
+  console.log(showMonthName(5));
+  console.log(showMonthName(14));
 } catch (e) {
   console.log(e);
 }
