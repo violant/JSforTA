@@ -13,20 +13,14 @@ myThrow('5');
 
 function calcRectangleArea(width, height) {
   if (isNaN(parseFloat(width)) || (isNaN(parseFloat(height)))) {
-    throw('arguments is not a number');
+    throw new Error('arguments is not a number');
   }
-
   return width * height;
-
 }
-
 try {
   calcRectangleArea('ASDasd', '5');
 } catch (e) {
-
-  if (e === 'arguments is not a number') {
-    console.log('not a number');
-  }
+  console.log(e);
 }
 
 //Task4-3
@@ -62,13 +56,13 @@ checkAge();
 
 class MonthException {
   constructor(message) {
-    this.MonthException = message;
+    this.name = message;
   }
 
   static showMonthName(month) {
     month = parseInt(month);
     if (month < 1 || month > 12) {
-      throw (this + 'Incorrect month number');
+      throw (this.name + '  Incorrect month number');
     }
     return [
       'January',
@@ -87,9 +81,13 @@ class MonthException {
 
 }
 
-new MonthException('Testing');
-console.log(MonthException.showMonthName(5));
-console.log(MonthException.showMonthName(14));
+try {
+  new MonthException('MonthException');
+  console.log(MonthException.showMonthName(5));
+  console.log(MonthException.showMonthName(14));
+} catch (e) {
+  console.log(e);
+}
 
 //Task 4-5
 
@@ -109,7 +107,7 @@ function showUsers(ids) {
     } catch (e) {
       if (e === 'negative id') {
         console.log('Error: ID must not be negative: ' + ids[i]);
-      }else{
+      } else {
         console.log('Error: Unknown: ' + ids[i]);
         break;
       }
