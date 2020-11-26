@@ -67,6 +67,7 @@ function showMonthName(month) {
     throw (new MonthException('MonthException') + '  Incorrect month number');
   }
   return [
+
     'January',
     'February',
     'March',

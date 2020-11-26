@@ -59,8 +59,8 @@ function findUnique(arr) {
 
   let isUnique = true;
   for (let i = 0; i <= arr.length - 1; i++) {
-    for (let j = 0; j <= arr.length - 1; j++) {
-      if ((i !== j) && (arr[j] === arr[i])) {
+    for (let j = (i+1); j <= arr.length; j++) {
+      if  (arr[j] === arr[i]) {
         isUnique = false;
         break;
       }
