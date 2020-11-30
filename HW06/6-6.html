@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6-6</title>
+</head>
+<body>
+<input type="text" id="input1" value="Text1">
+<input type="text" id="input2" value="Text2">
+
+
+<script>
+
+  let a = prompt('Enter first string', '0');
+  let b = prompt('Enter second string', '0');
+  let input1 = document.getElementById('input1');
+  input1.value = a;
+  let input2 = document.getElementById('input2');
+  input2.value = b;
+
+  let temp = input1.value;
+  input1.value = input2.value;
+  input2.value = temp;
+
+
+</script>
+</body>
+
+
+</html>

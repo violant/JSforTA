@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ol id="list" type="1">
+    <li>Coffee1</li>
+    <li>Tea2</li>
+    <li>Milk3</li>
+    <li>Water4</li>
+    <li>Oil5</li>
+</ol>
+
+<script>
+  let element = document.querySelectorAll('#list>li');
+
+  alert(element[0].innerText);
+  alert(element[element.length - 1].innerText);
+  alert(element[1].innerText);
+  alert(element[3].innerText);
+  alert(element[2].innerText);
+
+
+</script>
+</body>
+</html>

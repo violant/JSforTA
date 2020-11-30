@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6-3</title>
+</head>
+<body>
+<h2>Article header</h2>
+<div id="text">
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+    <p>Third paragraph</p>
+</div>
+<p>Another text</p>
+
+<script>
+  let elem = document.querySelectorAll('#text>p');
+  for (let i = 0; i < elem.length; i++) {
+    console.log('Selector text ' + i + ' ' + elem[i].innerText);
+  }
+
+</script>
+</body>
+
+</html>

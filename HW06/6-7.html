@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6-7</title>
+</head>
+<body>
+<script>
+  let main = document.createElement('main');
+  main.className = 'mainClass check item';
+  document.body.appendChild(main);
+  let div = document.createElement('div');
+  div.id = 'myDiv';
+  main.appendChild(div);
+  let para = document.createElement("p");
+  let node = document.createTextNode("First paragraph");
+  para.appendChild(node);
+  div.appendChild(para);
+
+</script>
+</body>
+</html>

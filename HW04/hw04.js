@@ -29,7 +29,7 @@ try {
 function checkAge() {
   try {
     let age = prompt('Enter age', '');
-    if (age === '') {
+    if (age.trim() == 0) {
       throw{
         name: 'Empty field',
         message: 'The field is empty! Please enter your age',

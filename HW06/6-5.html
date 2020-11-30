@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6-5</title>
+</head>
+<body>
+
+<h1>I'm a big header!!!</h1>
+<div id="myDiv">
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+    <p>Third paragraph</p>
+    <p>Fourth paragraph</p>
+</div>
+<ul id="myList">
+    <li>Make</li>
+    <li>me</li>
+    <li>horizontal!</li>
+</ul>
+<span>Make me invisible, please!</span>
+</body>
+
+<script>
+  let bigHeader = document.querySelector('h1');
+  bigHeader.style.fontSize = '96px';
+  bigHeader.style.backgroundColor = 'green';
+
+  let firstParagraph = document.querySelector('#myDiv>p');
+  firstParagraph.style.fontWeight = 'bold';
+
+  let secondParagraph = document.querySelector('#myDiv>p:nth-child(2)');
+  secondParagraph.style.color = 'red';
+
+  let thirdParagraph = document.querySelector('#myDiv>p:nth-child(3)');
+  thirdParagraph.style.textDecoration = 'underline';
+
+  let forthParagraph = document.querySelector('#myDiv>p:nth-child(4)');
+  forthParagraph.style.fontStyle = 'italic';
+
+  let list = document.querySelectorAll('#myList li');
+  for (let i = 0; i < list.length; i++) {
+    list[i].style.listStyleType = 'none';
+    list[i].style.display = 'inline';
+  }
+
+  let span = document.querySelector('span');
+  span.style.visibility = 'hidden';
+
+</script>
+</html>
