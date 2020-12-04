@@ -14,6 +14,7 @@
 </ol>
 
 <script>
+  //First way
   let element = document.querySelectorAll('#list>li');
 
   alert(element[0].innerText);
@@ -22,6 +23,14 @@
   alert(element[3].innerText);
   alert(element[2].innerText);
 
+  //Second way
+  let element1 = document.getElementById('list');
+
+  alert(element1.children[0].childNodes[0].nodeValue);
+  alert(element1.children[4].childNodes[0].nodeValue);
+  alert(element1.children[1].childNodes[0].nodeValue);
+  alert(element1.children[2].childNodes[0].nodeValue);
+  alert(element1.children[3].childNodes[0].nodeValue);
 
 </script>
 </body>
