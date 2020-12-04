@@ -27,7 +27,7 @@
   let element1 = document.getElementById('list');
 
   alert(element1.children[0].childNodes[0].nodeValue);
-  alert(element1.children[4].childNodes[0].nodeValue);
+  alert(element1.children[element1.childElementCount - 1].childNodes[0].nodeValue);
   alert(element1.children[1].childNodes[0].nodeValue);
   alert(element1.children[2].childNodes[0].nodeValue);
   alert(element1.children[3].childNodes[0].nodeValue);
