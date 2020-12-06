@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" id="myBtn1">Click to make the page blue</button>
+<button type="button" id="myBtn2">Double-Click to make the page ping</button>
+<button type="button" id="myBtn3">Click and hold to make the page brown</button>
+<a id="link1" href="url">Hover over to make page yellow</a>
+<script>
+  document.getElementById('myBtn1').onclick = function() {
+    document.body.style.backgroundColor = 'blue';
+  };
+  document.getElementById('myBtn2').ondblclick = function() {
+    document.body.style.backgroundColor = 'pink';
+  };
+  document.getElementById('myBtn3').addEventListener('mousedown', function(event) {
+    setTimeout(function() {
+      document.body.style.backgroundColor = 'brown';
+    }, 500);
+  });
+
+  let link = document.getElementById('link1');
+  link.addEventListener('mouseover', function() {
+    document.body.style.backgroundColor = 'yellow';
+  });
+  link.addEventListener('mouseout', function() {
+    document.body.style.backgroundColor = 'white';
+  });
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7-4</title>
+</head>
+<body>
+<select name="cars" id="cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+</select>
+
+<button type="button" id="myBtn1">Choose and Delete</button>
+<script>
+
+  let button = document.getElementById('myBtn1');
+  let select = document.getElementById('cars');
+
+  function deleteOption() {
+    select.options[select.selectedIndex].remove();
+  }
+
+  button.addEventListener('click', deleteOption);
+
+</script>
+</body>
+</html>

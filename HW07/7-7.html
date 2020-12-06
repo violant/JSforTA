@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7-7</title>
+</head>
+<body>
+<select name="country" id="country">
+    <option value="ger">Germany</option>
+    <option value="usa">USA</option>
+    <option value="ukr">Ukraine</option>
+</select>
+
+<select name="cities" id="cities"></select>
+<p id="p"></p>
+
+<script>
+
+  let Ukraine = ['Kyiv', 'Dnipro', 'Ivano-Frankivsk', 'Lviv'];
+  let USA = ['New York', 'Los Angeles', 'Boston'];
+  let Germany = ['Berlin', 'Frankfurt', 'Hannover', 'Bonn'];
+
+  let paragraph = document.getElementById('p');
+  let text = document.createTextNode('');
+  paragraph.appendChild(text);
+
+  let countries = document.getElementById('country');
+  countries.addEventListener('change', onCountrySelect);
+  let cities = document.getElementById('cities');
+  cities.addEventListener('change', onCitiesSelect);
+
+  function onCountrySelect() {
+    cities.innerHTML = '';
+    let aItems = [];
+    if (countries.value === 'usa') {
+      aItems = USA;
+    } else if (countries.value === 'ukr') {
+      aItems = Ukraine;
+    } else if (countries.value === 'ger') {
+      aItems = Germany;
+    }
+    for (let i = 0; i < aItems.length; i++) {
+      let option = document.createElement('option');
+      option.value = (i + 1);
+      let textNode = document.createTextNode(aItems[i]);
+      option.appendChild(textNode);
+      cities.appendChild(option);
+    }
+    paragraph.textContent = countries.options[countries.selectedIndex].text;
+  }
+
+  function onCitiesSelect() {
+    paragraph.textContent = countries.options[countries.selectedIndex].text + '  ,  ' +
+        cities.options[cities.selectedIndex].text;
+  }
+
+
+</script>
+</body>
+</html>

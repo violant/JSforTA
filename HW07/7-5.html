@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7-5</title>
+</head>
+<body>
+
+<button type="button" id="myBtn1">Live button</button>
+
+<p id="p"></p>
+<script>
+  let button = document.getElementById('myBtn1');
+  let paragraph = document.getElementById('p');
+  let text = document.createTextNode('');
+  paragraph.appendChild(text);
+
+  function onClick() {
+    paragraph.textContent += 'I was pressed! \r\n';
+  }
+
+  function onHover() {
+    paragraph.textContent += 'Mouse on me! \r\n';
+  }
+
+  function onNotHover() {
+    paragraph.textContent += 'Mouse is not on me! \r\n ';
+  }
+  button.addEventListener('click', onClick);
+  button.addEventListener('mouseover', onHover);
+  button.addEventListener('mouseout', onNotHover);
+
+</script>
+</body>
+</html>
