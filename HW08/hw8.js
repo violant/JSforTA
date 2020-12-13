@@ -30,15 +30,15 @@ console.log(switchWords('Java Script'));
 
 //Task 8-6
 
-function checkEmail(email) {
+function checkEmailNew(email) {
   let regExp = /^[^-_][a-zA-Z0-9-_]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
   return regExp.test(email);
 }
 
-console.log(checkEmail('my_mail@gmail.com'));
-console.log(checkEmail('#my_mail@gmail.com'));
-console.log(checkEmail('#my_mai#l@gmail.com'));
-console.log(checkEmail('-mymail@gmail.com'));
+console.log(checkEmailNew('my_mail@gmail.com'));
+console.log(checkEmailNew('#my_mail@gmail.com'));
+console.log(checkEmailNew('#my_mai#l@gmail.com'));
+console.log(checkEmailNew('-mymail@gmail.com'));
 
 //Task 8-7
 
