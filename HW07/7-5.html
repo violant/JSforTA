@@ -16,15 +16,15 @@
   paragraph.appendChild(text);
 
   function onClick() {
-    paragraph.textContent += 'I was pressed! \r\n';
+    paragraph.innerHTML += 'I was pressed! <br>';
   }
 
   function onHover() {
-    paragraph.textContent += 'Mouse on me! \r\n';
+    paragraph.innerHTML += 'Mouse on me! <br>';
   }
 
   function onNotHover() {
-    paragraph.textContent += 'Mouse is not on me! \r\n ';
+    paragraph.innerHTML += 'Mouse is not on me! <br> ';
   }
   button.addEventListener('click', onClick);
   button.addEventListener('mouseover', onHover);

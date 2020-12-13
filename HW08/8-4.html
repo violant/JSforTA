@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8-4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<input type="checkbox" id="chbx1" name="chbx1" class="chbx">
+<input type="checkbox" id="chbx2" name="chbx2" class="chbx">
+<input type="checkbox" id="chbx3" name="chbx3" class="chbx">
+<input type="checkbox" id="chbx4" name="chbx4" class="chbx">
+<input type="checkbox" id="chbx5" name="chbx5" class="chbx">
+<input type="checkbox" id="chbx6" name="chbx6" class="chbx">
+<script>
+
+  $('input:checkbox').on('change', function(evt) {
+    if ($(this).siblings(':checked').length >= 3) {
+      this.checked = false;
+      console.log(this.value);
+    }
+  });
+</script>
+
+</body>
+</html>
