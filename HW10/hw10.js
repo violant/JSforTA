@@ -1,7 +1,7 @@
 //Task 10-1
 
 function getPromise(message, delay) {
-  return new Promise(function(resolve, reject) {
+  return new Promise((resolve) => {
     setTimeout(function() {
       console.log(message);
     }, delay);
@@ -19,19 +19,14 @@ function calcArrProduct(arr) {
   return new Promise(
       function(resolve, reject) {
         let output = 1;
-        let isAnyNonNumber = false;
         for (x of arr) {
           if (typeof (x) === 'number') {
             output *= x;
           } else {
-            isAnyNonNumber = true;
+            reject('Error! Incorrect array!');
           }
         }
-        if (!isAnyNonNumber) {
-          resolve(output);// done
-        } else {
-          resolve('Error! Incorrect array!');
-        }
+        resolve(output);// done
       },
   );
 }
@@ -47,7 +42,7 @@ const delay = (i, time) => new Promise(
 function showNumbers() {
   // your code with using delay(i, time)
   let promise = Promise.resolve();
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 0; i <= 10; i++) {
     promise = promise.then(
         _ => delay(i, Math.random() * 1000).then(console.log));
   }
@@ -62,9 +57,9 @@ const delay = (i, time) => new Promise(
 
 async function showNumbers() {
   // your code with using delay(i, time)
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 0; i <= 10; i++) {
     const res = await delay(i, Math.random() * 1000);
-    console.log(res);
+    console.log(res); //console.log(i);
   }
 }
 
