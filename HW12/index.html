@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <input id="voteBtn" value="Vote!" onclick="setVote()" type="button" />
+    <button onclick="downloadBooks()">Download books</button>
+    <div id="list">
+      <!-- Insert my list here -->
+    </div>
+
+    <script>
+      let voteBtn = document.getElementById("voteBtn");
+
+      function setVote() {
+        const ajaxRequest = new XMLHttpRequest();
+        ajaxRequest.open("GET", "/setVote", true);
+        ajaxRequest.onreadystatechange = function () {
+          // for asynchronous  requests
+          if (ajaxRequest.readyState != 4) return; // for asynchronous  requests
+          if (ajaxRequest.status != 200) {
+            alert(
+              `Error ` + ajaxRequest.status + `: ` + ajaxRequest.statusText
+            );
+          } else {
+            voteBtn.value = ajaxRequest.responseText;
+          }
+        };
+        ajaxRequest.send();
+      }
+
+      function downloadBooks() {
+        let listDiv = document.getElementById("list");
+        let ul = document.createElement("ul");
+        const ajaxRequest = new XMLHttpRequest();
+        ajaxRequest.overrideMimeType("application/json");
+        ajaxRequest.open("GET", "books.json", true);
+        ajaxRequest.onreadystatechange = function () {
+          // for asynchronous  requests
+          if (ajaxRequest.readyState != 4) return; // for asynchronous  requests
+          if (ajaxRequest.status != 200) {
+            alert(
+              `Error ` + ajaxRequest.status + `: ` + ajaxRequest.statusText
+            );
+          } else {
+            let data = JSON.parse(ajaxRequest.responseText);
+            for (let i = 0; i < data.length; ++i) {
+              let li = document.createElement("li");
+              li.innerHTML = data[i].author; // Use innerHTML to set the text
+              ul.appendChild(li);
+            }
+            listDiv.appendChild(ul);
+          }
+        };
+        ajaxRequest.send();
+      }
+    </script>
+  </body>
+</html>
