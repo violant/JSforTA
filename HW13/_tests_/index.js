@@ -1,5 +1,5 @@
 function adding(a, b) {
-  return Math.round((a + b) * 100) / 100;
+  return a + b;
 }
 
 module.exports = adding;
