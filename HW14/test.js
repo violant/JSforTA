@@ -1,5 +1,5 @@
 require("chromedriver");
-const assert = require("chai");
+const chai = require("chai");
 const { Builder, Key, By, until } = require("selenium-webdriver");
 describe("HW14-Selenium part1", function () {
   let driver;
@@ -11,12 +11,12 @@ describe("HW14-Selenium part1", function () {
     dropdown = await driver.findElement(By.id("dropdown"));
     dropdown.click();
     dropdown.findElements(By.css("option")).then((options) => {
-      assert.equal(
+      chai.assert.equal(
         options[0].getAttribute("disabled"),
         "disabled",
         "1st option is not disabled"
       );
-      assert.equal(
+      chai.assert.equal(
         options[1].getAttribute("disabled"),
         null,
         "2nd option is disabled"
@@ -30,7 +30,7 @@ describe("HW14-Selenium part1", function () {
     await driver.actions().move({ origin: image, duration: 1000 }).perform();
     let name = image.findElement(By.css("h5"));
     name.getText().then(function (text) {
-      assert.equal(text, "name: user1", "text is not name: user1 under img");
+      chai.assert.equal(text, "name: user1", "text is not name: user1 under img");
     });
   });
 
@@ -52,21 +52,25 @@ describe("HW14-Selenium part1", function () {
       5000
     );
     testStatusElem.getText().then(function (text) {
-      assert.equal(text, "The form was successfully submitted!");
+      chai.assert.equal(text, "The form was successfully submitted!");
     });
-
-    await driver.sleep(6000);
   });
 
   it("Сортування таблиці", async function () {
     await driver.get("http://the-internet.herokuapp.com/tables");
+    let table2 = await driver.findElement(By.id("table2"));
+    await driver.actions().move({ origin: table2, duration: 1000 }).perform();
 
-    let image = await driver.findElement(By.css("div.figure > img"));
-    await driver.actions().move({ origin: image, duration: 1000 }).perform();
-    let name = image.findElement(By.css("h5"));
-    name.getText().then(function (text) {
-      assert.equal(text, "name: user1", "text is not name: user1 under img");
+    await driver.findElement(By.css("#table2 span.dues")).click();
+    let dues = driver.findElements(By.className("htd.dues"));
+    let isAscending = true;
+    await dues.then(function (elements) {
+      for (let i = 0; i < elements.length - 1; i++) {
+        isAscending = isAscending && elements[i] <= elements[i + 1];
+      }
     });
+
+    chai.assert.isTrue(isAscending, "dues element are ascending");
   });
 
   after(() => driver && driver.quit());
